@@ -1,0 +1,54 @@
+# File paths
+input_dir: data
+output_dir: results
+tesseract_data_dir: ./usr/share/tesseract-ocr/4.00/tessdata/
+author_names_filepath: data/author_names.pkl
+jamspell_language_model: en.bin
+
+detectron2:
+  path: lp://PubLayNet/faster_rcnn_R_50_FPN_3x/config
+  label_map:
+    0: Text
+    1: Title
+    2: List
+    3: Table
+    4: Figure
+
+ocr:
+  tesseract_config: '-c tessedit_do_invert=0 --tessdata-dir ./usr/share/tesseract-ocr/4.00/tessdata/ '
+  scale_factor: 2
+  gaussian_blur_sigma: 0.25
+  adaptive_threshold:
+    macro_block_size: 301
+    macro_C: 7
+    micro_C: 3
+  pad_size: 5
+
+wordsegment_max_limit: 200
+paragraph_break_placeholder: '⠀'
+
+detect_structure:
+  header_cutoff: 800
+  footer_cutoff: 40
+  title_font_size_cutoff: 200
+  subheading_zscore_relative: 0.09
+
+ner:
+  model_name: dslim/bert-base-NER
+  score_cutoff: 0.9
+
+column_centres:
+  double_col: [160, 400]
+  triple_col: [120, 300, 480]
+  quadruple_col: [100, 230, 360, 490]
+
+assign_column:
+  double_col: [30, 280]
+  triple_col: [30, 210]
+  quadruple_col: [35, 130]
+
+unsorted_column_value: 10
+
+output_format:
+  dividing_line: '-----------------------------------------------------'
+  paragraph_break_placeholder: '⠀'
