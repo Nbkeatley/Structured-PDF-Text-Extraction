@@ -3,7 +3,7 @@ import logging
 
 from ocr import pdf_to_ocr_scanned_df
 from preprocessing import preprocessing
-from detect_subheadings import classify_heading_type, remove_headers_footers
+from detect_structure_elements import classify_heading_type, remove_headers_footers
 from detect_page_layout import detect_page_layout
 from ner import detect_authors
 from output_format import df_to_formatted_docx
