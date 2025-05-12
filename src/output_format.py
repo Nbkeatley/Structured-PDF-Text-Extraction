@@ -17,7 +17,7 @@ import regex as re
 from utils import config
 
 DIVIDING_LINE = '\n-----------------------------------------------------\n'
-config = load_config
+config = load_config()
 
 def df_to_string(text_df, separator='\n\n'):
   return separator.join(text_df['text'].tolist())
